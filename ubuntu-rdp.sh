@@ -3,7 +3,7 @@
 # ubuntu14-rdp
 #
 #set this to the username of the rdp user you wish
-rdpuser="phil"
+rdpuser="rdpuser"
 
 set -e
 set -x
