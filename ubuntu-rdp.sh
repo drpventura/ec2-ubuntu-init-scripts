@@ -14,6 +14,10 @@ export DEBIAN_FRONTEND=noninteractive
 # Set timezone
 sudo timedatectl set-timezone America/New_York
 
+# Create the remote desktop user
+sudo adduser $rdpuser --disabled-login --gecos ""
+sudo usermod -aG sudo $rdpuser
+
 motdcontents=$(cat <<EOT
 #!/bin/bash
 
@@ -35,8 +39,7 @@ sudo apt-get upgrade -y
 # Install packages.
 sudo apt-get install -y xrdp xfce4 xfce4-terminal
 
-sudo adduser $rdpuser --disabled-login --gecos ""
-sudo usermod -aG sudo $rdpuser
+# set X to use xfce
 echo "xfce4-session" | sudo tee /home/$rdpuser/.xsession
 sudo chown $rdpuser:$rdpuser /home/$rdpuser/.xsession
 
