@@ -14,6 +14,18 @@ export DEBIAN_FRONTEND=noninteractive
 # Set timezone
 sudo timedatectl set-timezone America/New_York
 
+# fix color of directory, which in PuTTy ends up as dark blue on 
+# black background
+bashrc_append=$(cat <<'EOT'
+d=.dircolors
+test -r $d && eval "$(dircolors $d)"
+EOT
+)
+
+echo "$bashrc_append" >> /home/ubuntu/.bashrc
+dircolors -p > /home/ubuntu/.dircolors
+sed -i -e 's/DIR 01;.*/DIR 01;36 # directory/' /home/ubuntu/.dircolors
+
 # Create the remote desktop user
 sudo adduser $rdpuser --disabled-login --gecos ""
 sudo usermod -aG sudo $rdpuser
