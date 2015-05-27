@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# install-lamp-server
+# install-lamp-server ubuntu15
 #
 
 set -e
