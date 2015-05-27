@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# basic ubuntu14
+# basic ubuntu15
 #
 
 set -e
