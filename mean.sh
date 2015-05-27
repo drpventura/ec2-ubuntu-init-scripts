@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# MEAN server (ubuntu 14)
+# MEAN server (ubuntu 15)
 #
 
 set -e
@@ -26,8 +26,12 @@ sed -i -e 's/DIR 01;.*/DIR 01;36 # directory/' /home/ubuntu/.dircolors
 sudo chown ubuntu:ubuntu /home/ubuntu/.dircolors
 
 # Add mongo repo and keys
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+#sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+#echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+# using debian mongo repo as fix 
+# for issue in https://jira.mongodb.org/browse/SERVER-17742
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
 
 # Update packages
 sudo apt-get update
