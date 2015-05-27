@@ -22,6 +22,7 @@ EOT
 
 echo "$bashrc_append" >> /home/ubuntu/.bashrc
 dircolors -p > /home/ubuntu/.dircolors
+sudo chown ubuntu:ubuntu /home/ubuntu/.dircolors
 sed -i -e 's/DIR 01;.*/DIR 01;36 # directory/' /home/ubuntu/.dircolors
 
 # Upgrade
