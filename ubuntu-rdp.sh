@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# ubuntu14-rdp
+# ubuntu15-rdp
 #
 #set this to the username of the rdp user you wish
 rdpuser="rdpuser"
