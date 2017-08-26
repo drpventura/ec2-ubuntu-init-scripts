@@ -51,6 +51,9 @@ sudo chmod a+x /etc/update-motd.d/80-mysql-remind
 sudo apt-get update
 sudo apt-get upgrade -y
 
+# Ubuntu 16 no longer installs tasksel by default
+sudo apt-get install -y tasksel
+
 # Install packages.
 tasksel install lamp-server
 
