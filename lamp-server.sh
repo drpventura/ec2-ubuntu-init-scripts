@@ -35,7 +35,7 @@ if [ -e /usr/bin/mysql ]; then
 	/usr/bin/mysql --no-beep -u root -e "quit" 2>/dev/null
    if [ $? -eq "0" ]; then
 	   echo ""
-      echo "MySQL root password NOT set, change it with mysqladmin -u root password"
+      echo "MySQL root password NOT set, change it with sudo mysqladmin -u root password"
    fi
 else
    echo ""
