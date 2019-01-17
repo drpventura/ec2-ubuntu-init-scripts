@@ -49,7 +49,8 @@ sudo chmod a+x /etc/update-motd.d/80-mysql-remind
 
 # Upgrade
 sudo apt-get update
-sudo apt-get upgrade -y
+# sudo apt-get upgrade -y
+sudo apt-get install tasksel -y
 
 # Install packages.
 tasksel install lamp-server
