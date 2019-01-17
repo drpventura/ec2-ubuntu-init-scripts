@@ -39,8 +39,10 @@ if [ -e /usr/bin/mysql ]; then
    fi
 else
    echo ""
-   echo "MySQL not finished installing, once it is remember to change root password with mysqladmin -u root password"
+   echo "MySQL not finished installing, once it is remember to change root password with sudo mysqladmin -u root password"
 fi
+   echo ""
+   echo "Remember that mysql client must be launched as sudo mysql"
 EOT
 )
 
