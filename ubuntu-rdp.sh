@@ -47,7 +47,7 @@ sudo chmod a+x /etc/update-motd.d/80-xfce-remind
 
 # Upgrade
 sudo apt-get update
-sudo apt-get upgrade -y
+# sudo apt-get upgrade -y
 
 # Install packages.
 sudo apt-get install -y xrdp xfce4 xfce4-terminal
