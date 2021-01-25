@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# ubuntu15-rdp
+# ubuntu20-rdp
 #
 #set this to the username of the rdp user you wish
 rdpuser="rdpuser"
@@ -36,7 +36,9 @@ sudo apt-get update
 # sudo apt-get upgrade -y
 
 # Install packages.
-sudo apt-get install -y xrdp xfce4 xfce4-terminal
+# DEBIAN_FRONTEND is specified again, as of Ubuntu 20, the user is prompted without it,
+# thus hanging the install and causing it not to work.
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y xrdp xfce4 xfce4-terminal
 
 # set X to use xfce
 echo "xfce4-session" | sudo tee /home/$rdpuser/.xsession
