@@ -31,6 +31,16 @@ sudo chown ubuntu:ubuntu /home/ubuntu/.dircolors
 sudo adduser $rdpuser --disabled-login --gecos ""
 sudo usermod -aG sudo $rdpuser
 
+motdcontents=$(cat <<EOT
+#!/bin/bash
+echo ""
+echo "Set the password of $rdpuser using sudo passwd $rdpuser"
+echo "Delete this reminder using sudo rm /etc/update-motd.d/80-xfce-remind"
+EOT
+)
+echo "$motdcontents" | sudo tee /etc/update-motd.d/80-xfce-remind
+sudo chmod a+x /etc/update-motd.d/80-xfce-remind
+
 # Upgrade
 sudo apt-get update
 # sudo apt-get upgrade -y
