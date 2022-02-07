@@ -6,6 +6,13 @@
 set -e
 set -x
 
+# Forces output to be sent to syslog
+# Taken from https://alestic.com/2010/12/ec2-user-data-output/,
+# last access, Feb 7, 2022
+exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+
+echo "BEGIN USER DATA"
+
 # Skip prompts
 export DEBIAN_FRONTEND=noninteractive
 
@@ -28,3 +35,5 @@ sudo chown ubuntu:ubuntu /home/ubuntu/.dircolors
 # Upgrade
 sudo apt-get update
 sudo apt-get upgrade -y
+
+echo "END USER DATA"
