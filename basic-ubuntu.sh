@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/bash
 #
-# basic ubuntu15
+# basic ubuntu24
 #
 
-set -e
-set -x
+set -e  # exit immediately if any command returns a non-zero status
+set -x # print each command before running it (helpful for debugging/logs)
 
 # Forces output to be sent to syslog
 # Taken from https://alestic.com/2010/12/ec2-user-data-output/,
@@ -33,7 +33,7 @@ sed -i -e 's/DIR 01;.*/DIR 01;36 # directory/' /home/ubuntu/.dircolors
 sudo chown ubuntu:ubuntu /home/ubuntu/.dircolors
 
 # Upgrade
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt update
+sudo apt upgrade -y
 
 echo "END USER DATA"
